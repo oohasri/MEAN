@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description", content="Quoting Dojo">
+</head>
+<body>
+    <!-- tip to easily see objects printed in full instead of [object Object] -->
+    <%- JSON.stringify(messages) %> 
+    <!-- based on the structure of your messages, determine how to display them -->
+    <% if(messages.registration) { %>
+        <% for (var x of messages.registration) { %>
+            <h3><%= x %></h3>
+        <% } %>
+    <% } %>
+            <form action="/quotes" method="POST">
+                <label>Your Name : </label>
+                <input type="text" name="name">
+                <label>Your Quote</label>
+                <input type="text" name="quote">
+                <input type="submit" name="submit" value="Add my quote!">
+            </form>
+            <a href="/quotes">Skip to quotes</a>
+        </body>
+        </html>

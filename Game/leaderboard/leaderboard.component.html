@@ -1,0 +1,11 @@
+<h1>Leader Board</h1>   
+<table id="table">
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+        </tr>
+        <tr *ngFor="let score of scores">
+            <td>{{score.name}}</td>
+            <td>{{score.score}}</td>
+        </tr>
+    </table>

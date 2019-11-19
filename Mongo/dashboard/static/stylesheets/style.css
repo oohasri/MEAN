@@ -1,0 +1,14 @@
+*{
+    padding: 0px;
+    margin : auto;
+}
+div{
+    width: 50%;
+    text-align: center;
+    background-color: #80808017;
+    margin: 20px auto;
+    padding: 20px;
+}
+h3, p{
+    margin: 20px;
+}

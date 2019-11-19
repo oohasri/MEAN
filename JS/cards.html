@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Deck of cards</title>
+	<script type="text/javascript">
+		
+        class Card{
+			constructor(name,val, num_val){
+				this.suit_name = name;
+				this.suit_val = val;
+                this.suit_num_val = num_val;
+                
+			}
+          show(){
+                    console.log(`Card is ${this.suit_name}  ${this.suit_val}`);
+                 }  
+		}
+		class Deck{
+			constructor(){
+				this.deck = [];
+				var suits = ["Hearts", "Clubs", "Diamonds", "Spades"];
+				var string_val = ["Ace","Two","Three","Four","Five","Six",
+				"Seven","Eight","Nine","Ten","Jack","Queen","King"];
+				for(var i=0;i<suits.length;i++)
+				{
+					for(var j=0;j<string_val.length;j++)
+					{
+						var card = new Card(suits[i],string_val[j], j+1);
+						this.deck.push(card);
+					}
+				}
+				console.log(this.deck);             
+			} 
+			deal(){
+                  return this.deck.pop();
+            }
+            shuffle() {
+				  var m = this.deck.length, t, i;
+				  // While there remain elements to shuffle…
+				  while (m) {
+				    // Pick a remaining element…
+				    i = Math.floor(Math.random() * m--);
+				    //console.log(Math.floor(Math.random() * m--) + "  --- " + m);
+
+				    // And swap it with the current element.
+				    t = this.deck[m];
+				    this.deck[m] = this.deck[i];
+				    this.deck[i] = t;
+				    // console.log(t + '---' + this.deck[i]);
+				  }
+				  return this.deck;
+			}
+			reset(){
+				this.deck = [];
+				var suits = ["Hearts", "Clubs", "Diamonds", "Spades"];
+				var string_val = ["Ace","Two","Three","Four","Five","Six",
+				"Seven","Eight","Nine","Ten","Jack","Queen","King"];
+				for(var i=0;i<suits.length;i++)
+				{
+					for(var j=0;j<string_val.length;j++)
+					{
+						var card = new Card(suits[i],string_val[j], j+1);
+						this.deck.push(card);
+					}
+				}
+				return this.deck;
+			}      
+		}
+        class Player{
+          constructor(name){
+            this.name = name;
+            // console.log(this.name);
+            this.hand = [];       
+          }
+          draw(deck){
+                this.hand.push(deck.deal());            
+          }
+          discard_card(i){
+                this.hand.splice(i)
+          }
+        }
+		const d =new Deck();
+		// console.log("before ",d);
+		console.log(d.shuffle());
+		// d.deal();
+        // var player = new Player("ooha");
+        // player.draw(d);
+        // player.draw(d);
+        // console.log(player.hand);
+        // player.discard_card(0);
+        // console.log(player.hand);
+        // console.log(d);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+input[type=text], select {
+    /* width: 100%; */
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit], button {
+    /* width: 100%; */
+    width: 30%;
+    /* background-color: #4CAF50; */
+    background-color: #37c0ce;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover, button {
+    /* background-color: #45a049; */
+    background-color: #37c0ce;
+
+  }
+
+  form, table {
+      width: 30%;
+      margin: 10px auto;
+      /* background-color: #f2f2f2; */
+      /* padding: 20px; */
+  }
+  
+  div {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* background-color: #f2f2f2; */
+    background-color: #32386D;
+    text-align: center;
+    /* height: 100%; */
+  }
+
+  h3, h1, h6, h4 {
+      text-align: center;
+      color: white;
+  }
+
+  .inline {
+    display: inline;
+  }
+
+  table {
+    border-collapse: collapse;
+    /* width: 50%;
+    margin: 0px auto;
+    padding: 20px; */
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 8px;
+    color: #f2f2f2;
+  }
+  
+  tr:nth-child(even){
+    /* background-color: #f2f2f2 */
+    color: #f2f2f2;
+  }
+  
+  th {
+    /* background-color: #4CAF50; */
+    background-color: #37c0ce;
+    color: white;
+  }
+
+  h1, h2 {
+    text-align: center;
+    color: white;
+  }
+
+  .max_width{
+    width: 100%;
+  }
+
+  
+  @media only screen and (max-width: 700px) {
+    /* we will set these stylings only if the device is a screen with a width of 480px or less */
+    table {
+        width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    /* we will set these stylings only if the device is a screen with a width of 480px or less */
+    form {
+        width: 100%;
+        margin: 0px;
+    }
+    div {
+      padding: 0px;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    font-weight: inherit;
+    font-size: 1em;
+  }
+  
+  body {
+    background-color: #3D3E6F;
+    /* height: 100%; */
+  }
+
+  .container {
+    height: 100vh;
+    font-size: 20px;
+    font-style: ;
+    background-color: #3D3E6F
+  }
+  
+.playbutton {
+  border-radius:25px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  margin: 10px;
+  width: 95%;
+}  
+  
+.bigtext {
+  font-size: 100px;
+}
+
+#input {
+  border: none;
+  color: white;
+  background: none;
+  border-bottom: 1px solid white;
+}
+
+#input::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.white {
+  color: white;
+}

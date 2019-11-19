@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Hunting Github</title>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			console.log("hello");
+			$('#clickable_btn').click(function(){
+				$.get("https://api.github.com/users/ooha", displayName)
+				function displayName(data) {
+					$('p').text(data['login']);
+				}              
+			});
+		});
+	</script>
+</head>
+<body>
+</br></br></br>
+<input type="button" id="clickable_btn" value="Click Me">
+<p id="display"></p>
+</body>
+</html>

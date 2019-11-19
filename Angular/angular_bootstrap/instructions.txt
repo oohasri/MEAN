@@ -1,0 +1,13 @@
+add in head tag for confetti
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@0.4.0/dist/confetti.browser.min.js"></script>
+
+https://taqih.com/how-to-create-simple-tic-tac-toe-game-using-angular2-and-angular-materials-with-the-help-of-angular-cli-ng-cli/316
+
+https://codepen.io/linrock/pen/Amdhr/
+
+Countdown timer - https://www.npmjs.com/package/ngx-countdown
+
+
+animated for count down - https://codepen.io/suez/pen/dXbBGp
+			https://bashooka.com/coding/40-css-javascript-animated-countdown-timer-examples/

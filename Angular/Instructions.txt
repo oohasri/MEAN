@@ -1,0 +1,128 @@
+To build a MEAN project
+
+1. Create project folder
+2. npm init -y
+3. nul>server.js
+4. npm i express mongoose body-parser path fs
+5. create folder structure
+   server
+	-config
+		-mongoose.js
+		-routes.js
+	-controllers
+		-(any task name, should be plural) controllers.js
+	-models
+ 		-(task/model name, should be singular) model.js
+	
+	*note - models and controllers can have same name but models (name.js) , controllers (names.js)
+
+To create angular project
+
+1. nav to project folder 
+   ng new public -g(-g doesn't create git repo)
+2. nav to public folder
+   ng build --watch
+3. In server.js
+   Add app.use(express.static( __dirname + '/public/dist/public' ));
+4. Create service
+   ng g s http       --- (any service name, in this case it's http) 
+5. Register the service
+   app.module.ts  ----> Add  
+
+		import { HttpService } from './http.service'; 
+		
+		@NgModule({
+  		 ...
+   			providers: [HttpService],
+   		...
+		})
+
+		import { HttpClientModule } from '@angular/common/http';
+		@NgModule({
+  		 ...
+  	 		imports: [
+      				BrowserModule,
+      				HttpClientModule
+  				 ],
+  		 ...
+		})
+6. Dependency injection
+   ./app/http.service.ts  ----->  Add
+
+		import { HttpClient } from '@angular/common/http';
+		
+		export class HttpService {
+  			constructor(private _http: HttpClient) { }
+		}
+
+   .../app/app.component.ts  -------> Add
+
+		import { HttpService } from './http.service';
+		
+		export class AppComponent {
+   			title = 'app';
+   			constructor(private _httpService: HttpService){}
+ 		}
+7. for forms add ngmodule for binding
+	../app/app.module.ts -------> Add
+		
+		import { FormsModule } from '@angular/forms'; // <-- import FormsModule.
+		@NgModule({ 
+		...
+			imports: [
+				BrowserModule,
+				FormsModule, // <-- register FormsModule with our app.
+			], 
+		...
+		}) 
+		export class AppModule { }
+
+
+Create New components:
+
+1. ng generate component component_name
+
+
+to run validations for update command {use validators: true, new: true} 
+If the models are bidirectional(store id reference)--  to get all the details by id 
+	Cake.find(_id : "passing id" ).populate('field which has id ref to other collection').exec()
+
+Routing :
+
+1. ng new sample-app --routing
+2. Include html tag 
+	<router-outlet></router-outlet>
+3. component.html
+	<button [routerLink]="['/alpha']">Load Alpha</button>
+	<button [routerLink]="['/edit/' + author._id]">Edit</button>
+	<form (submit)="edit(author._id, author)">
+	<button (click)="function()"></button>
+4. app-routing.module.ts
+	{ path: 'alpha',component: AlphaComponent },
+  	{ path: 'beta',component: BetaComponent },
+  	// use a colon and parameter name to include a parameter in the url
+  	{ path: 'gamma/:id', component: GammaComponent },
+  	// redirect to /alpha if there is nothing in the url
+  	{ path: '', pathMatch: 'full', redirectTo: '/alpha' },
+  	// the ** will catch anything that did not match any of the above routes
+  	{ path: '**', component: PageNotFoundComponent }
+
+
+Deployment:
+
+Make sure to remove /dist from public .gitignore and push to git
+
+1. Mongodb validation:
+   skip platform mongodb except step 7 (sudo service mongod status) and follow mongodb documentation steps 1,2,3,4(1 ubuntu 16) and 1
+
+
+to stop nginx 
+	sudo service nginx stop
+	sudo service pm2 stop
+
+
+
+		
+
+		
+  

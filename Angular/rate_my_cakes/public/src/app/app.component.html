@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+    }
+    h2{
+      text-align: center;
+      color: brown;
+    }
+    h4{
+      color: red;
+    }
+    form{
+      /* border: 2px solid #e2d7d7; */
+      border-radius: 10px;
+      padding: 10px;
+      margin: 0px auto;
+      text-align: center;
+    }
+    input{
+      display: block;
+    }
+    table, tr{
+      margin: 10px auto;
+    }
+    button{
+      color:darkblue;
+      margin: 10px auto;
+      padding: 10px;
+      border-radius: 10px;
+      display: block;
+    }    
+    .block{
+      display: inline-block;
+      vertical-align: top;
+      width: 50%;
+      margin: auto;
+    }
+    
+    img{
+      width: 250px;
+      height: 200px;
+    }
+    .cakes{
+      text-align: center;
+      /* background-color: #fffde7; */
+      height: 300px;
+      overflow: scroll;
+    }
+    .commentform{
+      margin-top: 50px;
+    }
+    select{
+      margin-bottom: 10px;
+      width: 100px;
+    }
+    .root{
+      margin: 0px auto;
+      text-align: center;
+    }
+    .display{
+      width: 500px;
+      margin: 10px auto;
+      text-align: center;
+    }
+    table{
+      width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="block form">
+      <h2>Rate My Cakes</h2>
+      
+      <form (submit)="OnSubmit()">
+        <div *ngIf="isError">        
+          <h4>{{errors.baker_name.message}}</h4>
+          <h4>{{errors.url.message}}</h4>
+        </div>
+        <h3>Submit your Cake for rating</h3>
+        <!-- <p> {{ addCake | json }} </p> -->
+        <table>
+          <tr>
+            <td>Baker Name : </td>
+            <td><input type="text" name="baker_name" [(ngModel)]="addCake.baker_name" /></td>
+          </tr>
+          <tr>
+            <td>Image URL : </td>
+            <td><input type="text" name="url" [(ngModel)]="addCake.url"/></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" value="Submit"/></td>
+          </tr>
+        </table>
+      </form>
+      <button (click)="getCakes()">Show All Cakes</button>
+
+    </div>
+    <div class="cakes block" *ngIf="cakes">
+      <div  *ngFor="let cake of cakes"> 
+          <app-cake *ngIf="cake" [getCakes]="cake" (aTaskEventEmitter)="dataFromChild($event)" (aCakeDisplayEmitter)="cakeDataFromChild($event)"></app-cake> 
+          <!-- <div class="block">
+            <h3>Baker's name : {{cake.public
+              baker_name}}</h3>
+            <img src="{{cake.url}}">
+          </div>
+          <div class="block">
+            <form class="commentform" (submit)="onComment(cake._id)">
+              <h4>Rating : </h4>
+              <select name="rating" [(ngModel)]="comment.rating">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+              <textarea name="comment" [(ngModel)]="comment.comment"></textarea>
+              <input type="submit" value="Comment">
+            </form>
+        </div> -->
+      </div>
+    </div>
+    <div class="display" *ngIf="cakeById">
+      <h3>Cake Info </h3>
+      <h5>Baker name : {{cakeById.baker_name}}</h5>
+      <img src="{{cakeById.url}}" alt="cake">
+      <div *ngFor="let comment of cakeById.comments">
+        Rating : {{comment.rating}}
+        Comment : {{comment.comment}}
+      </div>
+    </div>
+  </div>
+  <button [routerLink]="['/alpha']">Load Alpha</button>
+  <button [routerLink]="['/beta']">Load Beta</button>
+<router-outlet></router-outlet>
+</body>
+</html>

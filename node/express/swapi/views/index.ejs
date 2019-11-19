@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Swapi</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#peopleBtn').click(function(){
+				$("#planets").empty();
+	            // let's make the request to our OWN server!
+	            $.get('/people', function(data){
+	                // log the data to be sure we have it before we dive into manipulating the DOM
+	                var result = data.results;
+	                var new_arr = [];
+	                for(var i=0; i<result.length ; i++){
+	                	new_arr.push(result[i].name);
+	                }
+	                console.log(new_arr);
+	                for(var i=0; i<new_arr.length ; i++){
+	                	$("#people").append("<li>"+new_arr[i]+"</li>");
+	                }
+	                // console.log("got the data", data);
+	            }, 'json');
+
+        	});
+        	$('#planetBtn').click(function(){
+        		$("#people").empty();
+	            // let's make the request to our OWN server!
+	            $.get('/planet', function(data){
+	                // log the data to be sure we have it before we dive into manipulating the DOM
+	                var result = data.results;
+	                var new_arr = [];
+	                for(var i=0; i<result.length ; i++){
+	                	new_arr.push(result[i].name);
+	                }
+	                console.log(new_arr);
+	                for(var i=0; i<new_arr.length ; i++){
+	                	$("#planets").append("<li>"+new_arr[i]+"</li>");
+	                }
+	                // console.log("got the data", data);
+	            }, 'json');
+
+        	});
+        	$('#all').click(function(){
+        		$("#people").empty();
+        		$("#planets").empty();
+	            // let's make the request to our OWN server!
+	            $.get('/all_planets', function(data){
+	                // log the data to be sure we have it before we dive into manipulating the DOM
+	                // var result = data.results;
+	                // var new_arr = [];
+	                // for(var i=0; i<result.length ; i++){
+	                // 	new_arr.push(result[i].name);
+	                // }
+	                // console.log(new_arr);
+	                // for(var i=0; i<new_arr.length ; i++){
+	                // 	$("#planets").append("<li>"+new_arr[i]+"</li>");
+	                // }
+	                console.log("got the data", data);
+	            }, 'json');
+
+        	});
+		});
+
+	</script>
+</head>
+<body>
+	<h1>Star Wars Wiki</h1>
+	<p>What would you like to know more about?</p>
+	<button id="peopleBtn">People</button>
+	<button id="planetBtn">Planets</button>
+	<ol id="people"></ol>
+	<ol id="planets"></ol>
+	<button id="prev">Previous 10</button>
+	<button id="all">Get all planets</button>
+	<button id="next">Next 10</button>
+</body>
+</html>

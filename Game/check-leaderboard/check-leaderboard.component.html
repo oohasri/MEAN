@@ -1,0 +1,58 @@
+
+<div class="container">
+
+                <div *ngIf="top">
+
+                        <h2>You are in top 5</h2>
+                        <!-- <div class="party" title=":party:">
+                                <a title=":party:" href="https://abstract.com">
+                                        <ul>
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
+                                        </ul>
+                                </a>
+                        </div>                            -->
+                </div>
+                <h6 *ngIf="score">SCORE</h6>
+                <h1 class="bigtext">{{score}}</h1>
+                <h3 class="inline">BEST SCORE {{ bestscore }}</h3>
+                <h1></h1>
+                <div *ngIf="isError">        
+                        <h6 *ngIf="errors.name">{{errors.name.message}}</h6>
+                        <h6 *ngIf="errors.qty">{{errors.qty.message}}</h6>
+                        <h6 *ngIf="errors.price">{{errors.price.message}}</h6>
+                </div>
+                <!-- <div *ngIf=(!name.valid)>{{ name.errors | json }}</div> -->
+                <!-- <p>{{ user | json}}</p> -->
+                <!-- <button [routerLink]="['/game']" >PLAY AGAIN!</button> -->
+        
+        
+        <!-- <h1>Leader Board</h1>    -->
+        <div *ngIf="scores.length!=0">
+                <table id="table">
+                        <tr>
+                                <th>Name</th>
+                                <th>Score</th>
+                        </tr>
+                        <tr *ngFor="let score of scores">
+                                <td>{{score.name}}</td>
+                                <td>{{score.score}}</td>
+                        </tr>
+                </table>
+        </div>
+        <form (submit)="onCreate()">
+        <input type="text" name="name" 
+        required 
+        minlength="3" 
+        [(ngModel)]="user.name"
+        #name = "ngModel"
+        placeholder="Enter your name"
+        id="input" />
+        <input type="submit" name="Check Leaderboard" value="SAVE">
+        </form>
+
+        <button class="playbutton" [routerLink]="['/game']" >PLAY AGAIN</button>
+</div>
+

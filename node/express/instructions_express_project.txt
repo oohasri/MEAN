@@ -1,0 +1,6 @@
+1. Create a project folder with project name
+2. Navigate to the folder project name
+3. create server.js file, nul>server.js
+4. run npm init -y, this creates package.json
+5. npm i express, ejs
+6. create folders static, views at same level

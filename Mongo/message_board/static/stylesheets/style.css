@@ -1,0 +1,35 @@
+*{
+    padding: 0px;
+    margin: 0px auto;
+}
+div{
+    /* background-color: #d1e9ff85; */
+    padding: 20px;
+    text-align: left;
+    margin: 20px;
+}
+h2{
+    margin-bottom : 20px;
+}
+label{
+    display: block;
+    margin : 10px auto;
+}
+form{
+    margin : 10px auto;
+    width: 100%;
+    background-color: beige;
+}
+.block{
+    margin-left : 0px;
+    margin-top: 10px;
+    display: block;
+}
+h3, h4{
+    margin-top: 10px;
+}
+.bgcolor{
+    background-color: beige;
+
+}
+

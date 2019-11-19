@@ -1,0 +1,93 @@
+<style>
+  form{
+    display: inline-block;
+    width: 50%;
+  }
+  
+  button{
+    color:#1976d2;
+    display: inline-block;
+    padding: 5px;
+  }
+
+  td{
+    width: 200px;
+  }
+
+  .bg {
+    background-color: #ccc6e029;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+  }
+  input{
+    display: block;
+    margin: 10px;
+  }
+  .addstyle{
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc6e029;
+  }
+  .taskdisplay{
+    width: 20%;
+  }
+  .inline{
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+  .root{
+    border: 10px solid blueviolet;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+  }
+</style>
+
+<!-- Toolbar -->
+
+
+<div class="content" role="main">
+  <div class="addstyle">
+    <div class="inline">
+      <h3>Create new task</h3>
+      <form (submit)="onSubmit()">
+        <!-- use the json pipe to see how newTask changes in real time -->
+        <p> {{ newTask | json }} </p>
+        <input type="text" name="title" [(ngModel)]="newTask.title" />
+        <input type="text" name="description" [(ngModel)]="newTask.description" />
+        <input type="submit" value="Create Task" />
+      </form>
+    </div>
+    <div class="inline" *ngIf="edittask">
+      <!-- <div class="bg" *ngFor="let task of edittask"> -->
+          <h2>Edit Task</h2>
+          <form (submit)="editForm()">
+            <input name="title" value="edittask.title" [(ngModel)]="edittask.title" />
+            <input name="description" value="edittask.description" [(ngModel)]="edittask.description" />
+            <input type="submit" name="Edit" value="Edit" />
+          </form>
+      <!-- </div> -->
+  </div>
+  </div>
+  <button (click)="onButtonClick()">Get All Tasks</button>
+  <div *ngIf="tasks">
+    <div class="addstyle" *ngFor="let task of tasks">
+        <table>
+          <tr>
+            <td>{{task.title}}</td>
+            <td><button (click)="getTask(task._id)">Show</button></td>
+            <td><button (click)="getTaskEdit(task._id)">Edit</button></td>
+            <td><button (click)="deleteTask(task._id)">Delete</button></td>
+          </tr>
+        </table>
+    </div>
+  </div>
+  <div class="root">  
+    <app-task *ngIf="taskId" [getTask]="taskId"></app-task>
+  </div>
+  
+</div>
+<router-outlet></router-outlet>

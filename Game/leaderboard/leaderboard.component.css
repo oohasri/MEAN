@@ -1,0 +1,31 @@
+/* @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css'); */
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 0px auto;
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 700px) {
+    /* we will set these stylings only if the device is a screen with a width of 480px or less */
+    table {
+        width: 100%;
+    }
+  }
+  

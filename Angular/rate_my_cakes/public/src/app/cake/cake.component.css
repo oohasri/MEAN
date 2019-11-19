@@ -1,0 +1,13 @@
+img{
+    width: 250px;
+    height: 200px;
+  }
+.commentform{
+    margin-top: 50px;
+}
+select, input{
+    margin: 10px auto;
+    width: 100px;
+    display: block;
+}
+

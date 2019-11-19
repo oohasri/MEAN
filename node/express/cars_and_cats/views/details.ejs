@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Details</title>
+</head>
+<body>
+	<% if (cats) {%>
+		<% for (var cat of cats) { %>
+			<p> <%= cat.name %></p>
+			<p> <%= cat.age %></p>
+		<% } %>
+	<% } %>
+</body>
+</html>
